@@ -13,4 +13,4 @@ definition:
     - context: .
       env:
         CONNECTION_URI:
-          value: ""
+          valueFromEnv: APP_CONNECTOR_CONNECTION_URI
