@@ -163,6 +163,7 @@ definition:
     orderByExpressionType: App_UsersOrderBy
 
 ---
+---
 kind: ModelPermissions
 version: v1
 definition:
@@ -171,6 +172,15 @@ definition:
     - role: admin
       select:
         filter: null
+    - role: user
+      select:
+        filter:
+          fieldComparison:
+            field: id
+            operator: _eq
+            value:
+              sessionVariable: x-hasura-user-id
+
 
 ---
 kind: Relationship

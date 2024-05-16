@@ -41,16 +41,24 @@ definition:
 kind: TypePermissions
 version: v1
 definition:
-  typeName: Notifications
+  typeName: notifications
   permissions:
     - role: admin
       output:
         allowedFields:
-          - createdAt
+          - created_at
           - id
           - message
-          - updatedAt
-          - userId
+          - updated_at
+          - user_id
+    - role: user
+      output:
+        allowedFields:
+          - created_at
+          - id
+          - message
+          - updated_at
+          - user_id
 
 ---
 kind: ObjectBooleanExpressionType
@@ -118,11 +126,19 @@ definition:
 kind: ModelPermissions
 version: v1
 definition:
-  modelName: Notifications
+  modelName: notifications
   permissions:
     - role: admin
       select:
         filter: null
+    - role: user
+      select:
+        filter:
+          fieldComparison:
+            field: user_id
+            operator: _eq
+            value:
+              sessionVariable: x-hasura-user-id
 
 ---
 kind: Relationship
