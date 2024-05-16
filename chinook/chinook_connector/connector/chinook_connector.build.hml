@@ -1,0 +1,17 @@
+kind: ConnectorManifest
+version: v1
+spec:
+  supergraphManifests:
+    - base
+definition:
+  name: chinook_connector
+  type: cloud
+  connector:
+    type: hub
+    name: hasura/postgres:v0.6.0
+  deployments:
+    - context: .
+      env:
+        CONNECTION_URI:
+          valueFromEnv: CHINOOK_CONNECTOR_CONNECTION_URI
+

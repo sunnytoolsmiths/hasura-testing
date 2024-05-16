@@ -75,6 +75,14 @@ definition:
           - name
           - password
           - updatedAt
+    - role: user
+      output:
+        allowedFields:
+          - email
+          - favoriteArtist
+          - id
+          - name
+          - password
 
 ---
 kind: ObjectBooleanExpressionType
@@ -162,7 +170,6 @@ definition:
           - id
     orderByExpressionType: App_UsersOrderBy
 
----
 ---
 kind: ModelPermissions
 version: v1

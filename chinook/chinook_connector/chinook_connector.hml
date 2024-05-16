@@ -1,0 +1,19 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: chinook_connector
+  url:
+    Fn::ManifestRef: chinook_connector
+  schema:
+    version: v0.1
+    schema:
+      scalar_types: {}
+      object_types: {}
+      collections: []
+      functions: []
+      procedures: []
+    capabilities:
+      version: ""
+      capabilities:
+        query: {}
+        mutation: {}

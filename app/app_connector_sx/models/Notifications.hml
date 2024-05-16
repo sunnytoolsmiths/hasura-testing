@@ -158,3 +158,28 @@ definition:
         modelField:
           - fieldName: id
 
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Notifications
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - createdAt
+          - id
+          - message
+          - updatedAt
+          - userId
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Notifications
+  permissions:
+    - role: admin
+      select:
+        filter: null
+
